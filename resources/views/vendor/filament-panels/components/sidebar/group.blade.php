@@ -16,7 +16,7 @@
 <li
     x-data="{ label: @js($subNavigation ? "sub_navigation_{$label}" : $label) }"
     data-group-label="{{ $label }}"
-    {{ $attributes->class(['fi-sidebar-group flex flex-col gap-y-1']) }}
+    {{ $attributes->class(['fi-sidebar-group flex flex-col gap-y-']) }}
 >
     @if ($label)
         <div
@@ -37,7 +37,7 @@
             @if ($icon)
                 <x-filament::icon
                     :icon="$icon"
-                    class="fi-sidebar-group-icon h-6 w-6 text-gray-400 dark:text-gray-500"
+                    class="fi-sidebar-group-icon h-6 w-6 text-gray-500 dark:text-gray-500"
                 />
             @endif
 

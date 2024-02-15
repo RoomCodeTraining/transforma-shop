@@ -22,8 +22,8 @@ class ProductFactory extends Factory
             'slug' => \Illuminate\Support\Str::slug($name),
             'description' => $this->faker->text,
             'price' => $this->faker->randomFloat(2, 1, 1000),
-            'stock' => $this->faker->numberBetween(1, 100),
-            'images' => '["products/one.jpg", "products/two.jpg", "products/three.jpg"]',
+            'on_stock' => $this->faker->boolean,
+            'image' => "products/one.jpg",
             "category_id" => \App\Models\Category::first()->id,
         ];
     }
