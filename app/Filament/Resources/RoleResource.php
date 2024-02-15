@@ -2,28 +2,92 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RoleResource\Pages;
-use App\Filament\Resources\RoleResource\RelationManagers;
 use App\Models\Role;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Facades\Filament;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\ActionGroup;
+use App\Filament\Resources\RoleResource\Pages\EditRole;
+use App\Filament\Resources\RoleResource\Pages\ViewRole;
+use App\Filament\Resources\RoleResource\Pages\ListRoles;
+use App\Filament\Resources\RoleResource\Pages\CreateRole;
+use App\Filament\Resources\RoleResource\Pages\ManageRoles;
+use App\Filament\Resources\RoleResource\RelationManager\UserRelationManager;
+use App\Filament\Resources\RoleResource\RelationManager\PermissionRelationManager;
 
 class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    public static function getNavigationIcon(): ?string
+    {
+        return "heroicon-o-user";
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return config('filament-spatie-roles-permissions.should_register_on_navigation.roles', true);
+    }
+
+    public static function getModel(): string
+    {
+        return config('permission.models.role', Role::class);
+    }
+
+    public static function getLabel(): string
+    {
+        return __('filament-spatie-roles-permissions::filament-spatie.section.role');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __(config('filament-spatie-roles-permissions.navigation_section_group', 'filament-spatie-roles-permissions::filament-spatie.section.roles_and_permissions'));
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return __('filament-spatie-roles-permissions::filament-spatie.section.roles');
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                Section::make()
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('name')
+                                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name'))
+                                    ->required(),
+                                Select::make('guard_name')
+                                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name'))
+                                    ->options(config('filament-spatie-roles-permissions.guard_names'))
+                                    ->default(config('filament-spatie-roles-permissions.default_guard_name'))
+                                    ->required(),
+                                Select::make('permissions')
+                                    ->multiple()
+                                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.permissions'))
+                                    ->relationship('permissions', 'name')
+                                    ->preload(config('filament-spatie-roles-permissions.preload_permissions')),
+                                Select::make(config('permission.column_names.team_foreign_key', 'team_id'))
+                                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.team'))
+                                    ->hidden(fn () => ! config('permission.teams', false) || Filament::hasTenancy())
+                                    ->options(
+                                        fn () => config('filament-spatie-roles-permissions.team_model', App\Models\Team::class)::pluck('name', 'id')
+                                    )
+                                    ->dehydrated(fn ($state) => (int) $state <= 0)
+                                    ->placeholder(__('filament-spatie-roles-permissions::filament-spatie.select-team'))
+                                    ->hint(__('filament-spatie-roles-permissions::filament-spatie.select-team-hint')),
+                            ]),
+                    ]),
             ]);
     }
 
@@ -31,34 +95,53 @@ class RoleResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y')
+                    ->searchable(),
+                TextColumn::make('label')
+                    ->label('Role')
+                    ->searchable(),
+                TextColumn::make('permissions_count')
+                    ->counts('permissions')
+                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.permissions_count'))
+                    ->toggleable(isToggledHiddenByDefault: config('filament-spatie-roles-permissions.toggleable_guard_names.roles.isToggledHiddenByDefault', true)),
+                TextColumn::make('guard_name')
+                    ->toggleable(isToggledHiddenByDefault: config('filament-spatie-roles-permissions.toggleable_guard_names.roles.isToggledHiddenByDefault', true))
+                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name'))
+                    ->searchable(),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                ActionGroup::make([
+                     Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make(),
             ]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
+            PermissionRelationManager::class,
+            // UserRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRoles::route('/'),
-            'create' => Pages\CreateRole::route('/create'),
-            'edit' => Pages\EditRole::route('/{record}/edit'),
+            'index' => ManageRoles::route('/'),
         ];
     }
 }
