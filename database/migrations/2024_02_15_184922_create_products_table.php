@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->boolean('on_stock')->default(true);
             $table->decimal('price', 10, 2);
             $table->foreignUlid('category_id')->constrained('categories');
+            $table->timestamp('available_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

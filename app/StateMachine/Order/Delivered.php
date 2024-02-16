@@ -14,6 +14,11 @@ class Delivered extends OrderState
         return __('delivered');
     }
 
+    public function color(): string
+    {
+        return 'success';
+    }
+
     /**
      *
      * @return string

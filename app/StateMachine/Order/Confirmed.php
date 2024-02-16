@@ -14,6 +14,11 @@ class Confirmed extends OrderState
     {
         return __('confirmed');
     }
+
+    public function color(): string
+    {
+        return 'info';
+    }
     /**
      *
      * @return string

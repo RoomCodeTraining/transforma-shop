@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Product;
+use Filament\Forms\Get;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
@@ -22,46 +23,99 @@ use Filament\Tables\Actions\DeleteAction;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProductResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Filament\Resources\ProductResource\Widgets\ProductStats;
 
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static ?string $navigationIcon = 'heroicon-o-bolt';
     protected static bool $softDelete = true;
     protected static ?string $label = 'Produits';
+    protected static ?int $navigationSort = 0;
+
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Section::make([
-                    TextInput::make('name')
-                        ->label('Nom')
-                        ->required(),
-                    TextInput::make('price')
-                        ->label('Prix')
-                        ->required(),
-                    TextInput::make('on_stock')
-                        ->label('Stock')
-                        ->required(),
-                    Select::make('category_id')
-                        ->label('Catégorie')
-                        ->options(
-                            \App\Models\Category::all()->pluck('name', 'id')
-                        )->required(),
-                ])->columns(2),
-                Section::make([
-                    RichEditor::make('description')
-                        ->label('Description')
-                        ->required(),
-                    FileUpload::make('image')
-                        ->label('Image')
-                        ->required(),
-                ]),
+                Forms\Components\Group::make()
+                    ->schema([
+                        Forms\Components\Section::make()
+                            ->schema([
+                                Forms\Components\TextInput::make('name')
+                                    ->label('Nom')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
+                                        if ($operation !== 'create') {
+                                            return;
+                                        }
 
-            ]);
+                                        $set('slug', \Str::slug($state));
+                                    }),
+
+                                Forms\Components\TextInput::make('slug')
+                                    ->disabled()
+                                    ->dehydrated()
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->unique(Product::class, 'slug', ignoreRecord: true),
+                                TextInput::make('price')
+                                    ->label('Prix')
+                                    ->required()
+                                    ->columnSpan('full'),
+                                Forms\Components\MarkdownEditor::make('description')
+                                    ->columnSpan('full'),
+                            ])
+                            ->columns(2),
+
+                        Forms\Components\Section::make('Images')
+                            ->schema([
+                                SpatieMediaLibraryFileUpload::make('image')
+                                    ->collection('product-images')
+                                    ->hiddenLabel(),
+                            ])
+                            ->collapsible(),
+                    ])
+                    ->columnSpan(['lg' => 2]),
+
+                Forms\Components\Group::make()
+                    ->schema([
+                        Forms\Components\Section::make('Status')
+                            ->schema([
+                                Forms\Components\Toggle::make('on_stock')
+                                    ->label('Disponibilité')
+                                    ->helperText('Ce produit est-il disponible ?')
+                                    ->default(true),
+
+                                Forms\Components\DatePicker::make('available_at')
+                                    ->label('Date de disponibilité')
+                                    ->reactive()
+                                    ->disabled(fn (Get $get) => ! $get('is_disponible'))
+                                    ->live(onBlur: true)
+                                    ->default(now())
+                                    ->default(now())
+                                    ->required(),
+                            ]),
+
+                        Forms\Components\Section::make('Associations')
+                            ->schema([
+                                Forms\Components\Select::make('category_id')
+                                    ->label('Catégorie')
+                                    ->options(
+                                        \App\Models\Category::all()->pluck('name', 'id')
+                                    )
+                                    ->required(),
+                            ]),
+                    ])
+                    ->columnSpan(['lg' => 1]),
+            ])
+            ->columns(3);
     }
 
     public static function table(Table $table): Table
@@ -80,8 +134,9 @@ class ProductResource extends Resource
                     ->label('Prix')
                     ->sortable()
                     ->money('XOF'),
-                ImageColumn::make('image')
+                SpatieMediaLibraryImageColumn::make('image')
                     ->label('Image')
+                    ->collection('product-images')
                     ->sortable(),
                 TextColumn::make('on_stock')
                     ->badge()
@@ -114,6 +169,13 @@ class ProductResource extends Resource
         ];
     }
 
+    public static function getWidgets(): array
+    {
+        return [
+            ProductStats::class,
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
@@ -121,5 +183,11 @@ class ProductResource extends Resource
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        $modelClass = static::$model;
+        return (string) $modelClass::count();
     }
 }

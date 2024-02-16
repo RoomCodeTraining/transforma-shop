@@ -13,6 +13,11 @@ class DeliveryInProgress extends OrderState
     {
         return __('delivery_in_progress');
     }
+
+    public function color(): string
+    {
+        return 'secondary';
+    }
     /**
      *
      * @return string

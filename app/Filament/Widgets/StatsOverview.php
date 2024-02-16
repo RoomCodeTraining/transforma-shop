@@ -16,7 +16,7 @@ class StatsOverview extends BaseWidget
     {
         return [
             Stat::make('Categories', Category::count())->icon('heroicon-o-list-bullet'),
-            Stat::make('Produits', Product::count())->icon('heroicon-o-shopping-cart'),
+            Stat::make('Produits', Product::count())->icon('heroicon-o-bolt'),
             Stat::make('Commandes', Order::count())->icon('heroicon-o-shopping-cart'),
 
         ];

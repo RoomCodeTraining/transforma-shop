@@ -14,6 +14,8 @@ abstract class OrderState extends State
      */
     abstract public static function title(): string;
 
+    abstract public function color(): string;
+
     /**
      *
      * @return string

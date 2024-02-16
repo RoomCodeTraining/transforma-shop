@@ -13,6 +13,11 @@ class Cancelled extends OrderState
     {
         return __('cancelled');
     }
+
+    public function color(): string
+    {
+        return 'danger';
+    }
     /**
      *
      * @return string
