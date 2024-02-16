@@ -8,11 +8,16 @@ use App\Models\Product;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Actions\DeleteAction;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProductResource\Pages;
@@ -31,7 +36,31 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make([
+                    TextInput::make('name')
+                        ->label('Nom')
+                        ->required(),
+                    TextInput::make('price')
+                        ->label('Prix')
+                        ->required(),
+                    TextInput::make('on_stock')
+                        ->label('Stock')
+                        ->required(),
+                    Select::make('category_id')
+                        ->label('Catégorie')
+                        ->options(
+                            \App\Models\Category::all()->pluck('name', 'id')
+                        )->required(),
+                ])->columns(2),
+                Section::make([
+                    RichEditor::make('description')
+                        ->label('Description')
+                        ->required(),
+                    FileUpload::make('image')
+                        ->label('Image')
+                        ->required(),
+                ]),
+
             ]);
     }
 
