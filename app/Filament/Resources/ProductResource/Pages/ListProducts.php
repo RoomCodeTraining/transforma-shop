@@ -13,7 +13,7 @@ class ListProducts extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('Ajouter un produit')->hidden(fn () => auth()->user()->can(\App\Enums\Permission::CREATE_PRODUCT))
         ];
     }
 }
