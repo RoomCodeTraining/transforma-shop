@@ -18,12 +18,18 @@ class DeliveryInProgress extends OrderState
     {
         return 'secondary';
     }
+
+    public function icon(): string
+    {
+        return 'heroicon-o-truck';
+    }
+
     /**
      *
      * @return string
      */
     public static function description(): string
     {
-        return __('La commande est en cours de livraison');
+        return __('En cours de livraison');
     }
 }

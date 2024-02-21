@@ -31,10 +31,17 @@ class LatestOrder extends BaseWidget
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('state')
+                     ->badge()
+                     ->icon(fn ($record) => $record->state->icon())
                     ->label('Statut')
-                    ->color(fn ($record) => $record->state->color())
+                    ->color(fn (string $state) : string => match($state) {
+                        'App\StateMachine\Order\Confirmed' => 'info',
+                        'App\StateMachine\Order\DeliveryInProgress' => 'secondary',
+                        'App\StateMachine\Order\Delivered' => 'success',
+                        'App\StateMachine\Order\Cancelled' => 'danger',
+                        default => 'secondary'
+                    })
                     ->formatStateUsing(fn ($record) => $record->state->description())
-                    ->badge()
                     ->sortable(),
                 TextColumn::make('id')
                     ->label('Client')

@@ -13,8 +13,8 @@ abstract class OrderState extends State
      * @var Reservation
      */
     abstract public static function title(): string;
-
     abstract public function color(): string;
+    abstract public function icon(): string;
 
     /**
      *

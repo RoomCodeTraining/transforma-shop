@@ -18,12 +18,18 @@ class Cancelled extends OrderState
     {
         return 'danger';
     }
+
+    public function icon(): string
+    {
+        return 'heroicon-o-x';
+    }
+
     /**
      *
      * @return string
      */
     public static function description(): string
     {
-        return __('La commande est annulée');
+        return __('Annulée');
     }
 }

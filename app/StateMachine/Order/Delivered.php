@@ -19,12 +19,17 @@ class Delivered extends OrderState
         return 'success';
     }
 
+    public function icon(): string
+    {
+        return 'heroicon-o-check-circle';
+    }
+
     /**
      *
      * @return string
      */
     public static function description(): string
     {
-        return __('La commande est livrée');
+        return __('Livrée');
     }
 }
