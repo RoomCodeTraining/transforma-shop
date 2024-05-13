@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('on_stock')->default(true);
+            $table->integer('quantity');
             $table->decimal('price', 10, 2);
             $table->foreignUlid('category_id')->constrained('categories');
             $table->timestamp('available_at')->nullable();
