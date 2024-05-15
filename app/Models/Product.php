@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Builders\Product\ProductBuilder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,6 +50,19 @@ class Product extends Model implements HasMedia
            ->height(232)
            ->sharpen(10)
            ->nonOptimized();
+    }
+
+    public function image() : Attribute
+    {
+        return new Attribute(
+            get : function () {
+                if($this->getFirstMediaUrl('product-images')) {
+                    return $this->getFirstMediaUrl('product-images');
+                }
+
+                return "https://group-alliancegulf.com/wp-content/uploads/2022/01/huile-de-palme-_-group-alliancegulf.com_.jpg";
+            }
+        );
     }
 
 }

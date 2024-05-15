@@ -15,7 +15,7 @@
                           <div class="single-category">
                               <div class="category-image">
                                   <a href="{{ route('products.show', $product) }}" title="Vegetables">
-                                      <img width="121" height="121" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBtxp_svHFStBnNXUzgAGCmUigfnE2a8WCjx45KcD4Jw&s"
+                                      <img width="121" height="121" src="{{ asset($product->image) }}"
                                           class="img-fluid" alt="">
                                   </a>
                               </div>

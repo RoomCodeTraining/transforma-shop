@@ -21,7 +21,7 @@
                                             <div class="image">
                                                 <a href="{{ route('products.show', $product) }}">
                                                     <img width="350" height="350"
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPT__f0V_twft63I09RJ3SAiVcWiQMpZB8rNp9ZeXB1KB8Uf4rThcA1O2gNpZh8lz9dr8&usqp=CAU" class="img-fluid"
+                                                        src="{{ asset($product->image) }}" class="img-fluid"
                                                         alt="">
                                                 </a>
                                             </div>

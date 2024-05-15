@@ -178,7 +178,7 @@
                                         <a href="{{ route('products.show', $product) }}">
                                             <span class="onsale">Sale!</span>
                                             <img width="350" height="350"
-                                                src="https://group-alliancegulf.com/wp-content/uploads/2022/01/huile-de-palme-_-group-alliancegulf.com_.jpg" class="img-fluid"
+                                                src="{{ asset($product->image) }}" class="img-fluid"
                                                 alt="">
                                         </a>
                                         <div class="product-hover-icons">
@@ -212,7 +212,7 @@
                                         <a href="{{ route('products.show', $product) }}">
                                             <span class="onsale">Sale!</span>
                                             <img width="350" height="350"
-                                                src="https://group-alliancegulf.com/wp-content/uploads/2022/01/huile-de-palme-_-group-alliancegulf.com_.jpg" class="img-fluid"
+                                                src="{{ asset($product->image) }}" class="img-fluid"
                                                 alt="">
                                         </a>
                                         <div class="product-hover-icons">
