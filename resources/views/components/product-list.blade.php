@@ -28,7 +28,7 @@
                                             <div class="image">
                                                 <a href="single-product.html">
                                                     <span class="onsale">En promotion!</span>
-                                                    <img width="350" height="350"
+                                                    <img width="350" height="350" style="width: 130px; height: 130px;"
                                                         src="{{ asset($product->image) }}" class="img-fluid"
                                                         alt="">
                                                 </a>

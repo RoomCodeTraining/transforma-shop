@@ -177,7 +177,7 @@
                                     <div class="image">
                                         <a href="{{ route('products.show', $product) }}">
                                             <span class="onsale">Sale!</span>
-                                            <img width="350" height="350"
+                                            <img style="width: 350px; height: 250px;"
                                                 src="{{ asset($product->image) }}" class="img-fluid"
                                                 alt="">
                                         </a>
@@ -211,7 +211,7 @@
                                     <div class="image">
                                         <a href="{{ route('products.show', $product) }}">
                                             <span class="onsale">Sale!</span>
-                                            <img width="350" height="350"
+                                            <img  style="width: 350px; height: 250px;"
                                                 src="{{ asset($product->image) }}" class="img-fluid"
                                                 alt="">
                                         </a>
