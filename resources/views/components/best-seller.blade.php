@@ -20,7 +20,7 @@
                                         <div class="col-lg-4 pl-0 pr-0">
                                             <div class="image">
                                                 <a href="{{ route('products.show', $product) }}">
-                                                    <img  style="width: 120px; height: 120px;"
+                                                    <img  style="width: 350px; height: 120px;"
                                                         src="{{ asset($product->image) }}" class="img-fluid"
                                                         alt="">
                                                 </a>
