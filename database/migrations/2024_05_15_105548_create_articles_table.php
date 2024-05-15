@@ -10,11 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->ulid('id')->primary();
-            $table->string('reference')->unique();
+        Schema::create('articles', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->longText('content');
+            $table->string('slug')->unique()->virtualAs('lower(replace(title, " ", "-"))');
             $table->foreignId('user_id')->constrained('users');
-            $table->string('state');
+            $table->boolean('is_published')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -25,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('articles');
     }
 };

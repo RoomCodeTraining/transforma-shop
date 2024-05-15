@@ -11,13 +11,13 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
-	<link href="assets/css/elegent.min.css" rel="stylesheet">
-	<link href="assets/css/plugins.css" rel="stylesheet">
-	<link href="assets/css/helper.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">
-	<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+	<link href="{{  asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{  asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+	<link href="{{  asset('assets/css/elegent.min.css') }}" rel="stylesheet">
+	<link href="{{  asset('assets/css/plugins.css') }}" rel="stylesheet">
+	<link href="{{  asset('assets/css/helper.css') }}" rel="stylesheet">
+	<link href="{{  asset('assets/css/main.css') }}" rel="stylesheet">
+	<script src="{{  asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 						<!-- logo -->
 						<div class="logo">
 							<a href="index.html">
-								<img width="111" height="111" src="assets/images/logo.webp" class="img-fluid" alt="">
+								<img width="111" height="111" src="{{ asset('assets/images/logo.webp') }}" class="img-fluid" alt="">
 							</a>
 						</div>
 						<!-- end of logo -->
@@ -58,7 +58,7 @@
 							<!-- header phone number -->
 							<div class="header-contact d-flex">
 								<div class="phone-icon">
-									<img width="40" height="35" src="assets/images/icon-phone.webp" class="img-fluid" alt="">
+									<img width="40" height="35" src="{{ asset('assets/images/icon-phone.webp') }}" class="img-fluid" alt="">
 								</div>
 								<div class="phone-number">
 									Contact: <span class="number">1-888-123-456-89</span>
@@ -91,7 +91,7 @@
 										<div class="cart-float-single-item d-flex">
 											<span class="remove-item"><a href="#"><i class="fa fa-times"></i></a></span>
 											<div class="cart-float-single-item-image">
-												<a href="single-product.html"><img width="350" height="350" src="assets/images/products/product01.webp" class="img-fluid"
+												<a href="single-product.html"><img width="350" height="350" src="{{ asset('assets/images/products/product01.webp') }}" class="img-fluid"
 														alt=""></a>
 											</div>
 											<div class="cart-float-single-item-desc">
@@ -102,7 +102,7 @@
 										<div class="cart-float-single-item d-flex">
 											<span class="remove-item"><a href="#"><i class="fa fa-times"></i></a></span>
 											<div class="cart-float-single-item-image">
-												<a href="single-product.html"><img width="350" height="350" src="assets/images/products/product02.webp" class="img-fluid"
+												<a href="single-product.html"><img width="350" height="350" src="{{ asset('assets/images/products/product02.webp') }}" class="img-fluid"
 														alt=""></a>
 											</div>
 											<div class="cart-float-single-item-desc">
@@ -128,42 +128,32 @@
 						<div class="main-menu main-menu-other-homepage">
 							<nav>
 								<ul>
-									<li class="active menu-"><a href="#">Accueil</a>
-									</li>
-									<li><a href="contact.html">CONTACT</a></li>
+										<li class="active"><a href="#">Acceuil</a>
+										</li>
+										<li><a href="contact.html">Nos produits</a></li>
+										<li><a href="contact.html">Blog</a></li>
+										<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
 						</div>
-						<!-- end of navigation section -->
-
-						<!--=====  End of navigation menu  ======-->
-
-
 					</div>
 					<div class="col-12">
-						<!-- Mobile Menu -->
 						<div class="mobile-menu d-block d-lg-none"></div>
 					</div>
 				</div>
 			</div>
-
-			<!--=============================================
-		=            navigation menu         =
-		=============================================-->
-
 			<div class="home-other-navigation-menu">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
-							<!-- navigation section -->
 							<div class="main-menu">
 								<nav>
 									<ul>
 										<li class="active"><a href="#">Acceuil</a>
 										</li>
 										<li><a href="contact.html">Nos produits</a></li>
-										<li><a href="contact.html">CONTACT</a></li>
-										<li><a href="contact.html">CONTACT</a></li>
+										<li><a href="contact.html">Blog</a></li>
+										<li><a href="contact.html">Contact</a></li>
 									</ul>
 								</nav>
 							</div>

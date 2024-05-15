@@ -43,7 +43,7 @@
                                                     <a href="#">{{ $product->category->name }}</a>,
                                                 </div>
                                                 <h3 class="product-title">
-                                                  <a href="#">
+                                                  <a href="{{ route('products.show', $product) }}">
                                                     {{ $product->name }}
                                                   </a>
                                                 </h3>
