@@ -111,6 +111,10 @@ class ProductResource extends Resource
                                         \App\Models\Category::all()->pluck('name', 'id')
                                     )
                                     ->required(),
+                                TextInput::make('quantity')
+                                    ->label('Quantité en stock')
+                                    ->required()
+                                    ->default(0),
                             ]),
                     ])
                     ->columnSpan(['lg' => 1]),

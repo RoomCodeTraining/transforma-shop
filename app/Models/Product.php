@@ -21,6 +21,11 @@ class Product extends Model implements HasMedia
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 
     public function category()
     {

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -18,6 +19,8 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', HomeController::class)->name('home');
 Route::resource('products', ProductController::class)->only(['index', 'show']);
+Route::resource('articles', ArticleController::class)->only(['index', 'show']);
+Route::view('/contact', 'pages.contact')->name('contacts.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

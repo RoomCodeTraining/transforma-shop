@@ -152,8 +152,8 @@
 										<li class="active"><a href="{{ route('home') }}">Acceuil</a>
 										</li>
 										<li><a href="{{ route('products.index') }}">Nos produits</a></li>
-										<li><a href="contact.html">Blog</a></li>
-										<li><a href="contact.html">Contact</a></li>
+										<li><a href="{{ route('articles.index') }}">Blog</a></li>
+										<li><a href="{{ route('contacts.index') }}">Contact</a></li>
 									</ul>
 								</nav>
 							</div>

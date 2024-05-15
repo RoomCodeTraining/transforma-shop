@@ -14,14 +14,14 @@
                       @foreach ($products as $product)
                           <div class="single-category">
                               <div class="category-image">
-                                  <a href="shop-left-sidebar.html" title="Vegetables">
+                                  <a href="{{ route('products.show', $product) }}" title="Vegetables">
                                       <img width="121" height="121" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBtxp_svHFStBnNXUzgAGCmUigfnE2a8WCjx45KcD4Jw&s"
                                           class="img-fluid" alt="">
                                   </a>
                               </div>
                               <div class="category-title">
                                   <h3>
-                                      <a href="shop-left-sidebar.html"> {{ $product->name }}</a>
+                                      <a href="{{ route('products.show', $product) }}"> {{ $product->name }}</a>
                                   </h3>
                               </div>
                           </div>

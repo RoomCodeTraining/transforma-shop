@@ -9,7 +9,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('pages.products.index');
+        return view('pages.products.index', [
+            'products' => Product::query()->inStock()->latest()->get()
+        ]);
     }
 
     public function show(Product $product)
