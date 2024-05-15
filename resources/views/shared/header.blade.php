@@ -128,9 +128,9 @@
 						<div class="main-menu main-menu-other-homepage">
 							<nav>
 								<ul>
-										<li class="active"><a href="#">Acceuil</a>
+										<li class="active"><a href="{{ route('home') }}">Acceuil</a>
 										</li>
-										<li><a href="contact.html">Nos produits</a></li>
+										<li><a href="{{ route('products.index') }}">Nos produits</a></li>
 										<li><a href="contact.html">Blog</a></li>
 										<li><a href="contact.html">Contact</a></li>
 								</ul>
@@ -149,9 +149,9 @@
 							<div class="main-menu">
 								<nav>
 									<ul>
-										<li class="active"><a href="#">Acceuil</a>
+										<li class="active"><a href="{{ route('home') }}">Acceuil</a>
 										</li>
-										<li><a href="contact.html">Nos produits</a></li>
+										<li><a href="{{ route('products.index') }}">Nos produits</a></li>
 										<li><a href="contact.html">Blog</a></li>
 										<li><a href="contact.html">Contact</a></li>
 									</ul>
