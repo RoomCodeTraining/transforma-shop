@@ -48,6 +48,14 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Beurre de karité',
                 'slug' => 'beurre-de-karite',
+            ],
+            [
+                'name' => 'Beurre de cacao',
+                'slug' => 'beurre-de-cacao',
+            ],
+            [
+                'name' => 'Beurre de mangue',
+                'slug' => 'beurre-de-mangue',
             ]
         ];
 
@@ -55,6 +63,8 @@ class CategorySeeder extends Seeder
             \App\Models\Product::factory()->create([
                 'name' => $product['name'],
                 'slug' => $product['slug'],
+                'quantity' => rand(1, 100),
+                'on_stock' => true,
             ]);
         }
     }

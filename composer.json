@@ -20,8 +20,10 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.4",
         "spatie/laravel-model-states": "^2.6",
-        "spatie/laravel-permission": "^6.3"
+        "spatie/laravel-permission": "^6.3",
+        "spatie/laravel-view-models": "^1.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

@@ -15,4 +15,9 @@ class ProductBuilder extends Builder
     {
         return $this->where('on_stock', false);
     }
+
+    public function popular() : Builder
+    {
+        return $this->model->withCount('items')->orderBy('items_count', 'desc');
+    }
 }
