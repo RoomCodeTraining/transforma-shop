@@ -24,7 +24,7 @@ Route::view('/contact', 'pages.contact')->name('contacts.index');
 Route::view('account', 'pages.accounts.login')->name('connexion');
 Route::view('inscription', 'pages.accounts.register')->name('form.inscription');
 
-Route::view('cart', 'pages.shop.cart')->name('shopping');
+Route::view('cart','pages.shop.cart')->name('shopping')->name
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
