@@ -6,7 +6,7 @@
                 <div class="col">
                     <div class="breadcrumb-container">
                         <ul>
-                            <li><a href="/"><i class="fa fa-home"></i> Accueil</a></li>
+                            <li><a href="index.html"><i class="fa fa-home"></i> Accueil</a></li>
                             <li><a href="#">{{ $product->category->name }}</a></li>
                             <li class="active">{{ $product->name }}</li>
                         </ul>
@@ -36,8 +36,7 @@
                             </div>
                             <div class="tab-content product-large-image-list">
                                 @foreach ($product->images as $key => $image)
-                                    <div class="tab-pane fade show {{ $image === $product->image ? 'active' : '' }}"
-                                        id="{{ 'single-slide' . $key }}" role="tabpanel"
+                                    <div class="tab-pane fade show {{ $image === $product->image ? 'active' : '' }}" id="{{ 'single-slide' . $key }}" role="tabpanel"
                                         aria-labelledby="{{ 'single-slide-tab-' . $key }}">
                                         <div class="single-product-img easyzoom img-full">
                                             <img width="600" height="600" src="{{ $image }}" class="img-fluid"

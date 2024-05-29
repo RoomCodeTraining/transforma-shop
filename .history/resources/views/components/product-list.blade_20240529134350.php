@@ -23,12 +23,12 @@
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-12">
                                 <div class="banner-slider-container">
-                                    @foreach ($products as $product)
+                                    @foreach($products as $product)
                                         <div class="gf-product banner-slider-product">
                                             <div class="image">
                                                 <a href="single-product.html">
                                                     <span class="onsale">En promotion!</span>
-                                                    <img style="width: 350px; height: 130px;"
+                                                    <img  style="width: 350px; height: 130px;"
                                                         src="{{ asset($product->image) }}" class="img-fluid"
                                                         alt="">
                                                 </a>
@@ -43,9 +43,9 @@
                                                     <a href="#">{{ $product->category->name }}</a>,
                                                 </div>
                                                 <h3 class="product-title">
-                                                    <a href="{{ route('products.show', $product) }}">
-                                                        {{ $product->name }}
-                                                    </a>
+                                                  <a href="{{ route('products.show', $product) }}">
+                                                    {{ $product->name }}
+                                                  </a>
                                                 </h3>
                                                 <div class="price-box">
                                                     <span class="main-price">{{ $product->price }} FCFA</span>
