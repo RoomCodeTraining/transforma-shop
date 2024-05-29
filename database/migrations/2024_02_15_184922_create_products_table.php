@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
+            $table->json('images')->nullable();
             $table->boolean('on_stock')->default(true);
             $table->integer('quantity');
             $table->decimal('price', 10, 2);

@@ -78,8 +78,16 @@ class ProductResource extends Resource
                             ->schema([
                                 SpatieMediaLibraryFileUpload::make('image')
                                     ->collection('product-images')
+                                    ->label('Image principale')
+                                    ->disablePreview()
                                     ->hiddenLabel(),
+                                SpatieMediaLibraryFileUpload::make('images')
+                                    ->collection('product-images')
+                                    ->multiple()
+                                    ->disablePreview()
+                                    ->label('Autres images')
                             ])
+                            ->columns(2)
                             ->collapsible(),
                     ])
                     ->columnSpan(['lg' => 2]),
@@ -139,9 +147,10 @@ class ProductResource extends Resource
                     ->sortable()
                     ->money('XOF'),
                 SpatieMediaLibraryImageColumn::make('image')
-                    ->label('Image')
+                    ->label('Image principale')
                     ->collection('product-images')
                     ->sortable(),
+
                 TextColumn::make('on_stock')
                     ->badge()
                     ->color(fn ($record) => $record->on_stock ? 'success' : 'danger')

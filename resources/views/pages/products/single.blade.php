@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-     <div class="single-product-content ">
+    <div class="single-product-content ">
         <div class="container">
             <!--=======  single product content container  =======-->
             <div class="single-product-content-container mb-35">
@@ -25,79 +25,29 @@
                             class="product-image-slider d-flex flex-custom-xs-wrap flex-sm-nowrap align-items-center mb-sm-35">
                             <div class="product-small-image-list">
                                 <div class="nav small-image-slider-single-product" role="tablist">
-                                    <div class="single-small-image img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img
-                                                width="600" height="600" src="{{ asset('assets/images/big-product-image/product04.webp') }}" class="img-fluid"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="single-small-image img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img
-                                                width="600" height="600" src="{{ asset('assets/images/big-product-image/product05.webp') }}" class="img-fluid"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="single-small-image img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img
-                                                width="600" height="600" src="{{ asset('assets/images/big-product-image/product06.webp') }}" class="img-fluid"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="single-small-image img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-4" href="#single-slide4"><img
-                                                width="600" height="600" src="{{ asset('assets/images/big-product-image/product07.webp') }}" class="img-fluid"
-                                                alt=""></a>
-                                    </div>
+                                    @foreach ($product->images as $key => $image)
+                                        <div class="single-small-image img-full">
+                                            <a data-bs-toggle="tab" id="{{ 'single-slide-tab-' . $key }}"
+                                                href="{{ '#single-slide' . $key }}"><img width="600" height="600"
+                                                    src="{{ $image }}" class="img-fluid" alt=""></a>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <!--Modal Tab Menu End-->
-
-                            <!--Modal Tab Content Start-->
                             <div class="tab-content product-large-image-list">
-                                <div class="tab-pane fade show active" id="single-slide1" role="tabpanel"
-                                    aria-labelledby="single-slide-tab-1">
-                                    <!--Single Product Image Start-->
-                                    <div class="single-product-img easyzoom img-full">
-                                        <img width="600" height="600" src="{{ asset('assets/images/big-product-image/product04.webp') }}" class="img-fluid"
-                                            alt="">
-                                        <a href="{{ asset('assets/images/big-product-image/product04.webp') }}"
-                                            class="big-image-popup"><i class="fa fa-search-plus"></i></a>
+                                @foreach ($product->images as $key => $image)
+                                    <div class="tab-pane fade show {{ $image === $product->image ? 'active' : '' }}" id="{{ 'single-slide' . $key }}" role="tabpanel"
+                                        aria-labelledby="{{ 'single-slide-tab-' . $key }}">
+                                        <div class="single-product-img easyzoom img-full">
+                                            <img width="600" height="600" src="{{ $image }}" class="img-fluid"
+                                                alt="">
+                                            <a href="{{ $image }}" class="big-image-popup"><i
+                                                    class="fa fa-search-plus"></i></a>
+                                        </div>
+                                        <!--Single Product Image End-->
                                     </div>
-                                    <!--Single Product Image End-->
-                                </div>
-                                <div class="tab-pane fade" id="single-slide2" role="tabpanel"
-                                    aria-labelledby="single-slide-tab-2">
-                                    <!--Single Product Image Start-->
-                                    <div class="single-product-img easyzoom img-full">
-                                        <img width="600" height="600" src="{{ asset('assets/images/big-product-image/product05.webp') }}" class="img-fluid"
-                                            alt="">
-                                        <a href="{{ asset('assets/images/big-product-image/product05.webp') }}"
-                                            class="big-image-popup"><i class="fa fa-search-plus"></i></a>
-                                    </div>
-                                    <!--Single Product Image End-->
-                                </div>
-                                <div class="tab-pane fade" id="single-slide3" role="tabpanel"
-                                    aria-labelledby="single-slide-tab-3">
-                                    <!--Single Product Image Start-->
-                                    <div class="single-product-img easyzoom img-full">
-                                        <img width="600" height="600" src="{{ asset('assets/images/big-product-image/product06.webp') }}" class="img-fluid"
-                                            alt="">
-                                        <a href="{{ asset('assets/images/big-product-image/product06.webp') }}"
-                                            class="big-image-popup"><i class="fa fa-search-plus"></i></a>
-                                    </div>
-                                    <!--Single Product Image End-->
-                                </div>
-                                <div class="tab-pane fade" id="single-slide4" role="tabpanel"
-                                    aria-labelledby="single-slide-tab-4">
-                                    <!--Single Product Image Start-->
-                                    <div class="single-product-img easyzoom img-full">
-                                        <img width="600" height="600" src="{{ asset('assets/images/big-product-image/product07.webp') }}" class="img-fluid"
-                                            alt="">
-                                        <a href="assets/images/big-product-image/product07.webp"
-                                            class="big-image-popup"><i class="fa fa-search-plus"></i></a>
-                                    </div>
-                                    <!--Single Product Image End-->
-                                </div>
+                                @endforeach
                             </div>
-                            <!--Modal Content End-->
-
                         </div>
                         <!-- end of product image gallery -->
                     </div>
@@ -129,12 +79,14 @@
                                 </div>
                             </div>
                             <div class="single-product-action-btn mb-20">
-                                <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span>Ajouter à la liste de souhaits</a>
+                                <a href="#" data-tooltip="Add to wishlist"> <span
+                                        class="icon_heart_alt"></span>Ajouter à la liste de souhaits</a>
                                 <a href="#" data-tooltip="Add to compare"> <span class="arrow_left-right_alt"></span>
                                     Ajouter à la comparaison</a>
                             </div>
                             <div class="single-product-category mb-20">
-                                <h3>Categorie: <span><a href="shop-left-sidebar.html">{{ $product->category->name }}</a></span></h3>
+                                <h3>Categorie: <span><a
+                                            href="shop-left-sidebar.html">{{ $product->category->name }}</a></span></h3>
                             </div>
                             <div class="social-share-buttons">
                                 <h3>share this product</h3>
