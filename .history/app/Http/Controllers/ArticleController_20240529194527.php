@@ -8,6 +8,6 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        return view('pages.accounts.login');
+        return view('pages.products.index');
     }
 }
