@@ -33,7 +33,7 @@
                         <!-- header top menu -->
                         <div class="header-top-menu">
                             <ul>
-                                <li><a href="{{ route('connexion') }}">Connexion </a></li>
+                                <li><a href="{{ route('connexion') }}">Connexion</a></li>
                                 <li><a href="{{ route('form.inscription') }}">Inscription</a></li>
                             </ul>
                         </div>

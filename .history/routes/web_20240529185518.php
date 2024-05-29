@@ -24,13 +24,9 @@ Route::view('/contact', 'pages.contact')->name('contacts.index');
 Route::view('account', 'pages.accounts.login')->name('connexion');
 Route::view('inscription', 'pages.accounts.register')->name('form.inscription');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

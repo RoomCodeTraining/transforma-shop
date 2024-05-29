@@ -33,8 +33,8 @@
                         <!-- header top menu -->
                         <div class="header-top-menu">
                             <ul>
-                                <li><a href="{{ route('connexion') }}">Connexion </a></li>
-                                <li><a href="{{ route('form.inscription') }}">Inscription</a></li>
+                                <li><a href="my-account.html">Mon compte</a></li>
+                                <li><a href="checkout.html">Mon panier</a></li>
                             </ul>
                         </div>
                         <!-- end of header top menu -->
@@ -142,7 +142,7 @@
                                     <li class="active"><a href="{{ route('home') }}">Acceuil</a>
                                     </li>
                                     <li><a href="{{ route('products.index') }}">Nos produits</a></li>
-                                    <li><a href="{{ route('articles.index') }}">Blog</a></li>
+                                    <li><a href="{{ route('article.index') }}">Blog</a></li>
                                     <li><a href="{{ route('contacts.index') }}">Contact</a></li>
                                 </ul>
                             </nav>

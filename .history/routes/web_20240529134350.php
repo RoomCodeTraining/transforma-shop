@@ -21,16 +21,9 @@ Route::get('/', HomeController::class)->name('home');
 Route::resource('products', ProductController::class)->only(['index', 'show']);
 Route::resource('articles', ArticleController::class)->only(['index', 'show']);
 Route::view('/contact', 'pages.contact')->name('contacts.index');
-Route::view('account', 'pages.accounts.login')->name('connexion');
-Route::view('inscription', 'pages.accounts.register')->name('form.inscription');
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,4 +31,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
