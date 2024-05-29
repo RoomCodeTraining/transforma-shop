@@ -2,10 +2,10 @@
 @section('content')
     <x-slider />
     <x-announcement />
-    <x-last-product :products='$latestProducts' />
-    <x-product-list :products='$products' />
+		<x-last-product :products='$latestProducts' />
+		<x-product-list :products='$products' />
 
-    <x-best-seller :products='$products' />
+		<x-best-seller :products='$products' />
     <div class="slider blog-slider mb-35">
         <div class="container">
             <div class="row">
@@ -18,31 +18,30 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="blog-slider-container pt-30 pb-30 pr-30 pl-30">
-                        @for ($i = 0; $i < 5; $i++)
-                            <div class="col">
-                                <div class="single-post-wrapper">
-                                    <div class="post-thumb">
-                                        <a href="blog-post-image-format.html">
-                                            <img width="500" height="300"
-                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDiKuS1JfU-nr2-bzbDmfuHxNjBpsyCvFU4w&s"
-                                                class="img-fluid" alt="">
-                                        </a>
+											@for($i = 0; $i < 5; $i++)
+                        <div class="col">
+                            <div class="single-post-wrapper">
+                                <div class="post-thumb">
+                                    <a href="blog-post-image-format.html">
+                                        <img width="500" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDiKuS1JfU-nr2-bzbDmfuHxNjBpsyCvFU4w&s"
+                                            class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <div class="post-meta">
+                                        <div class="post-date">29.09.2022</div>
                                     </div>
-                                    <div class="post-info">
-                                        <div class="post-meta">
-                                            <div class="post-date">29.09.2022</div>
-                                        </div>
-                                        <h3 class="post-title">
-                                            <a href="blog-post-image-format.html">
-                                                {{ $i }}. Blog post title
-                                            </a>
-                                        </h3>
-                                        <a href="blog-post-image-format.html" class="readmore-btn">Lire l'article <i
-                                                class="fa fa-arrow-right"></i></a>
-                                    </div>
+                                    <h3 class="post-title">
+																			<a href="blog-post-image-format.html">
+																				{{ $i }}. Blog post title
+																			</a>
+																		</h3>
+                                    <a href="blog-post-image-format.html" class="readmore-btn">Lire l'article <i
+                                            class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                        @endfor
+                        </div>
+											@endfor
                     </div>
                 </div>
             </div>

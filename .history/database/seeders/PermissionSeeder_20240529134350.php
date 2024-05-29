@@ -106,5 +106,7 @@ class PermissionSeeder extends Seeder
             $updateOrder,
             $deleteOrder
         ]);
+
+
     }
 }
