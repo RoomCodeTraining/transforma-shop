@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+    <style>
+
+
+    </style>
+
     <div class="breadcrumb-area mb-50">
         <div class="container">
             <div class="row">
@@ -25,7 +30,7 @@
                               --}}
                             <div class="logo">
                                 <a href="/">
-                                    <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
+                                    <img width="60" height="60" src="{{ asset('assets/images/logo.webp') }}"
                                         class="img-fluid mb-4" style="text-items: center" alt="">
                                 </a>
                             </div>

@@ -1,5 +1,38 @@
 @extends('layouts.main')
 @section('content')
+    <style>
+        .center-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page-content .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            /* Adjust the height as needed */
+        }
+
+        .page-content .row {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .login-form {
+            margin-top: -50px;
+            /* Adjust the margin-top as needed */
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
     <div class="breadcrumb-area mb-50">
         <div class="container">
             <div class="row">
@@ -25,7 +58,7 @@
                               --}}
                             <div class="logo">
                                 <a href="/">
-                                    <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
+                                    <img width="60" height="60" src="{{ asset('assets/images/logo.webp') }}"
                                         class="img-fluid mb-4" style="text-items: center" alt="">
                                 </a>
                             </div>
@@ -46,6 +79,11 @@
                                 </div>
                                 <div class="col-md-4 mt-10 mb-20 text-start text-md-end">
                                     @if (Route::has('password.request'))
+                                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                            href="">
+                                            {{ __('Forgot your password?') }}
+                                        </a>
+
                                         <a href="{{ route('password.request') }}"> Mot de passe oublié?</a>
                                     @endif
                                 </div>

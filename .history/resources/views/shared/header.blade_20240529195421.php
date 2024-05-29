@@ -49,8 +49,8 @@
                         <!-- logo -->
                         <div class="logo">
                             <a href="/">
-                                <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
-                                    class="img-fluid " style="text-items: center" alt="">
+                                <img width="60" height="60" src="{{ asset('assets/images/logo.webp') }}"
+                                    class="img-fluid mb-4" style="text-items: center" alt="">
                             </a>
                         </div>
                         <!-- end of logo -->

@@ -7,7 +7,7 @@
     <title>{{ config('app.name') }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="icon" href="assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link
@@ -49,8 +49,8 @@
                         <!-- logo -->
                         <div class="logo">
                             <a href="/">
-                                <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
-                                    class="img-fluid " style="text-items: center" alt="">
+                                <img width="60" height="60" src="{{ asset('assets/images/logo.webp') }}"
+                                    class="img-fluid mb-4" style="text-items: center" alt="">
                             </a>
                         </div>
                         <!-- end of logo -->
