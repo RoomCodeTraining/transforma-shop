@@ -58,7 +58,7 @@
                                             <p>Bienvenue , <strong>{{ auth()->user()->full_name }}</strong> </p>
                                         </div>
 
-                                        <p class="mb-0">Depuis votre tableau de bord, vous pouvez facilement
+                                        <p class="mb-0">Depuis le tableau de bord de votre compte, vous pouvez facilement
                                             vérifier et visualiser vos commandes récentes, gérer vos adresses de livraison
                                             et de facturation et modifier votre mot de passe et les détails de votre
                                             compte.</p>

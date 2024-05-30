@@ -35,7 +35,7 @@
                         @if (auth()->user())
                             <div class="header-top-menu">
                                 <ul>
-                                    {{ auth()->user()->full_name }} |
+                                     {{ auth()->user()->full_name }} |
                                     <li>
                                         {{--  <a href="{{ route('connexion') }}">Déconnexion </a>  --}}
                                         <form method="POST" action="{{ route('logout') }}">

@@ -31,21 +31,11 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  text-center text-sm-end">
                         <!-- header top menu -->
-
                         @if (auth()->user())
                             <div class="header-top-menu">
                                 <ul>
-                                    {{ auth()->user()->full_name }} |
-                                    <li>
-                                        {{--  <a href="{{ route('connexion') }}">Déconnexion </a>  --}}
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit" role="menuitem"
-                                                class="w-full text-left flex items-center space-x-2  rounded py-2 px-3 text-sm font-medium text-gray-600 hover:bg-primary-900 hover:text-gray-50 focus:outline-none focus:bg-gray-100 focus:text-gray-700">
-                                                <span>Se déconnecter</span>
-                                            </button>
-                                        </form>
-                                    </li>
+                                    Bienvenue, {{ auth()->user()->full_name }} /
+                                    <li><a href="{{ route('connexion') }}">Déconnexion </a></li>
 
                                 </ul>
                             </div>

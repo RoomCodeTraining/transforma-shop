@@ -35,8 +35,8 @@
                         @if (auth()->user())
                             <div class="header-top-menu">
                                 <ul>
-                                    {{ auth()->user()->full_name }} |
-                                    <li>
+                                    Bienvenue, {{ auth()->user()->full_name }} |
+                                    <li class="flex justify-end">
                                         {{--  <a href="{{ route('connexion') }}">Déconnexion </a>  --}}
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf

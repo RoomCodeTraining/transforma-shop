@@ -55,13 +55,14 @@
                                         <h3>Mon espace</h3>
 
                                         <div class="welcome">
-                                            <p>Bienvenue , <strong>{{ auth()->user()->full_name }}</strong> </p>
+                                            <p>Hello, <strong>{{ auth()->user()->full_name }}</strong> (If Not
+                                                <strong>Tuntuni !</strong><a href="login-register.html" class="logout">
+                                                    Logout</a>)</p>
                                         </div>
 
-                                        <p class="mb-0">Depuis votre tableau de bord, vous pouvez facilement
-                                            vérifier et visualiser vos commandes récentes, gérer vos adresses de livraison
-                                            et de facturation et modifier votre mot de passe et les détails de votre
-                                            compte.</p>
+                                        <p class="mb-0">From your account dashboard. you can easily check &amp; view your
+                                            recent orders, manage your shipping and billing addresses and edit your
+                                            password and account details.</p>
                                     </div>
                                 </div>
                                 <!-- Single Tab Content End -->

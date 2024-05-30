@@ -27,7 +27,7 @@
                         <div class="col-lg-3 col-12">
                             <div class="myaccount-tab-menu nav" role="tablist">
                                 <a href="#dashboad" class="active" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>
-                                    Tableau de bord</a>
+                                    Dashboard</a>
 
                                 <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 
@@ -52,16 +52,16 @@
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
                                     <div class="myaccount-content">
-                                        <h3>Mon espace</h3>
+                                        <h3>Dashboard</h3>
 
                                         <div class="welcome">
-                                            <p>Bienvenue , <strong>{{ auth()->user()->full_name }}</strong> </p>
+                                            <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a
+                                                    href="login-register.html" class="logout"> Logout</a>)</p>
                                         </div>
 
-                                        <p class="mb-0">Depuis votre tableau de bord, vous pouvez facilement
-                                            vérifier et visualiser vos commandes récentes, gérer vos adresses de livraison
-                                            et de facturation et modifier votre mot de passe et les détails de votre
-                                            compte.</p>
+                                        <p class="mb-0">From your account dashboard. you can easily check &amp; view your
+                                            recent orders, manage your shipping and billing addresses and edit your
+                                            password and account details.</p>
                                     </div>
                                 </div>
                                 <!-- Single Tab Content End -->
