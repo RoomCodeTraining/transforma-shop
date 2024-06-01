@@ -234,19 +234,13 @@
                                         <p class="product-description">{{ $product->description }}</p>
                                         <div class="list-product-icons">
 
-                                            <form action="{{ route('cart.store', $product->id) }}" method="post">
+                                            <form action="{{ route('cart.store') }}" method="post">
                                                 @csrf
                                                 <div class="row">
                                                     <div>
-                                                        <input type="hidden" name="quantity" value="1"
-                                                            min="1">
-                                                    </div>
+                                                        <input type="number" name="quantity" value="1"
+                                                            min="1" id="">
 
-                                                    <div>
-                                                        <button type="submit" class="btn btn-warning"
-                                                            title="Add to cart">
-                                                            <span class="icon_cart_alt"></span>
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </form>

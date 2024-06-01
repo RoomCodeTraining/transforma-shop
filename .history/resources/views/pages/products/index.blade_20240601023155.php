@@ -237,16 +237,16 @@
                                             <form action="{{ route('cart.store', $product->id) }}" method="post">
                                                 @csrf
                                                 <div class="row">
-                                                    <div>
-                                                        <input type="hidden" name="quantity" value="1"
-                                                            min="1">
-                                                    </div>
+                                                    {{--  <div>
+                                                        <input type="number" name="quantity" value="1"
+                                                            min="1" id="">
+
+                                                    </div>  --}}
 
                                                     <div>
-                                                        <button type="submit" class="btn btn-warning"
-                                                            title="Add to cart">
-                                                            <span class="icon_cart_alt"></span>
-                                                        </button>
+                                                        {{--  <input type="submit" value="Add to cart">  --}}
+                                                        <input href="#" type="submit" data-tooltip="Add to cart">
+                                                        <span class="icon_cart_alt"></span>
                                                     </div>
                                                 </div>
                                             </form>

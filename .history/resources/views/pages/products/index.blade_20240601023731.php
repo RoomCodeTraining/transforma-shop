@@ -243,8 +243,10 @@
                                                     </div>
 
                                                     <div>
-                                                        <button type="submit" class="btn btn-warning"
-                                                            title="Add to cart">
+                                                        {{--  <input type="submit" value="Add to cart">  --}}
+                                                        {{--  <a href="#" type="submit" data-tooltip="Add to cart">
+                                                            <span class="icon_cart_alt"></span></a>  --}}
+                                                        <button type="submit" title="Add to cart">
                                                             <span class="icon_cart_alt"></span>
                                                         </button>
                                                     </div>

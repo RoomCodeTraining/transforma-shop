@@ -87,12 +87,12 @@
                                 </form>
 
                             </div>
-                            {{--  <div class="single-product-action-btn mb-20">
+                            <div class="single-product-action-btn mb-20">
                                 <a href="#" data-tooltip="Add to wishlist"> <span
                                         class="icon_heart_alt"></span>Ajouter à la liste de souhaits</a>
                                 <a href="#" data-tooltip="Add to compare"> <span class="arrow_left-right_alt"></span>
                                     Ajouter à la comparaison</a>
-                            </div>  --}}
+                            </div>
                             <div class="single-product-category mb-20">
                                 <h3>Categorie: <span><a
                                             href="shop-left-sidebar.html">{{ $product->category->name }}</a></span></h3>

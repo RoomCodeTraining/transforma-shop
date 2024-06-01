@@ -233,29 +233,12 @@
                                         </div>
                                         <p class="product-description">{{ $product->description }}</p>
                                         <div class="list-product-icons">
-
-                                            <form action="{{ route('cart.store', $product->id) }}" method="post">
-                                                @csrf
-                                                <div class="row">
-                                                    <div>
-                                                        <input type="hidden" name="quantity" value="1"
-                                                            min="1">
-                                                    </div>
-
-                                                    <div>
-                                                        <button type="submit" class="btn btn-warning"
-                                                            title="Add to cart">
-                                                            <span class="icon_cart_alt"></span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-
-                                            {{--  <a href="#" data-tooltip="Add to wishlist"> <span
+                                            <a href="#" data-tooltip="Add to cart"> <span
+                                                    class="icon_cart_alt"></span></a>
+                                            <a href="#" data-tooltip="Add to wishlist"> <span
                                                     class="icon_heart_alt"></span> </a>
                                             <a href="#" data-tooltip="Compare"> <span
-                                                    class="arrow_left-right_alt"></span> </a>  --}}
+                                                    class="arrow_left-right_alt"></span> </a>
                                         </div>
                                     </div>
 
@@ -299,8 +282,8 @@
 
 @stop
 
-{{--  <script>
+<script>
     function addItemToCart(id, name, quantity, price) {
 
     }
-</script>  --}}
+</script>
