@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use App\ViewModels\HomepageViewModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;

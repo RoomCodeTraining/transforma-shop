@@ -41,6 +41,8 @@
 
                                 <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Mon profile</a>
 
+
+
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->
@@ -202,10 +204,9 @@
                                                 </div>
                                             </form>
                                             <hr />
-                                            <form action="{{ route('password.update') }}" method="post">
-                                                @csrf
-                                                @method('put')
+                                            <form action="#">
                                                 <div class="row">
+
                                                     <div class="col-12 mb-30">
                                                         <h4>Modification du password</h4>
                                                     </div>
@@ -221,12 +222,12 @@
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="confirm-pwd" name="confirm_password"
-                                                            placeholder="Confirm Password" type="password">
+                                                        <input id="confirm-pwd" placeholder="Confirm Password"
+                                                            type="password">
                                                     </div>
 
                                                     <div class="col-12">
-                                                        <button type="submit" class="save-change-btn"> Modifier</button>
+                                                        <button class="save-change-btn"> Modifier</button>
                                                     </div>
 
                                                 </div>

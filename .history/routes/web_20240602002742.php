@@ -75,13 +75,13 @@ Route::middleware(['CardIsNotEmpty'])->group(function () {
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('dashboard', 'home')->name('dashboard');
+    Route::put('update/profile', 'updateProfile')->name('update.profile');
 })->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('password.update');
 });
 
 require __DIR__ . '/auth.php';

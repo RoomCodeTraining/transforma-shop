@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
@@ -35,7 +34,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::back()->with('message', 'Profile mis à jour avec succès');
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**
@@ -57,28 +56,5 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
-    }
-
-
-    public function updatePassword(Request $request)
-    {
-        $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|min:8|confirmed',
-            'confirm_password' => 'required|same:new_password',
-        ]);
-
-        $user = Auth::user();
-
-        if (!Hash::check($request->current_password, $user->password)) {
-            return back()->with('error', 'Le mot de passe actuel est incorrect.');
-        }
-
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        Auth::logout();
-
-        return redirect()->route('login')->with('message', 'Le mot de passe a été mis à jour avec succès. Veuillez vous reconnecter avec votre nouveau mot de passe.');
     }
 }

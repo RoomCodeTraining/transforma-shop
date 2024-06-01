@@ -37,9 +37,11 @@
                                 {{--  <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> Payment
                                     Method</a>  --}}
 
-                                {{--  <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> address</a>  --}}
+                                <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> address</a>
 
-                                <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Mon profile</a>
+                                <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Account Details</a>
+
+
 
                             </div>
                         </div>
@@ -149,91 +151,21 @@
                                 <!-- Single Tab Content End -->
 
                                 <!-- Single Tab Content Start -->
-
-                                <!-- Single Tab Content End -->
-
-                                <!-- Single Tab Content Start -->
-
-                                <!-- Single Tab Content End -->
-
-                                <!-- Single Tab Content Start -->
-                                <div class="tab-pane fade" id="account-info" role="tabpanel">
+                                <div class="tab-pane fade" id="payment-method" role="tabpanel">
                                     <div class="myaccount-content">
-                                        <h3>Mon profile</h3>
+                                        <h3>Payment Method</h3>
 
-                                        <div class="account-details-form">
-                                            <form action="{{ route('profile.update') }}" method="post">
-                                                @csrf
-                                                @method('patch')
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="first-name" name="last_name"
-                                                            value="{{ $profile->last_name }}" placeholder="Nom"
-                                                            type="text">
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="last-name" name="first_name" placeholder="Prénom"
-                                                            value="{{ $profile->first_name }}" type="text">
-                                                    </div>
-
-                                                    <div class="col-12 mb-30">
-                                                        <input id="email" value="{{ $profile->email }}"
-                                                            placeholder="email" name="email" type="email">
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="contact" name="contact" placeholder="contact"
-                                                            value="{{ $profile->contact }}" type="text">
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="city" placeholder="Ville" name="city"
-                                                            value="{{ $profile->city }}" type="text">
-                                                    </div>
-
-
-
-                                                    <div class="col-12">
-                                                        <button type="submit" class="save-change-btn">Mettre à
-                                                            jour</button>
-                                                    </div>
-
-                                                </div>
-                                            </form>
-                                            <hr />
-                                            <form action="{{ route('password.update') }}" method="post">
-                                                @csrf
-                                                @method('put')
-                                                <div class="row">
-                                                    <div class="col-12 mb-30">
-                                                        <h4>Modification du password</h4>
-                                                    </div>
-
-                                                    <div class="col-12 mb-30">
-                                                        <input id="current-pwd" name="current_password"
-                                                            placeholder="Current Password" type="password">
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="new-pwd" name="new_password"
-                                                            placeholder="New Password" type="password">
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="confirm-pwd" name="confirm_password"
-                                                            placeholder="Confirm Password" type="password">
-                                                    </div>
-
-                                                    <div class="col-12">
-                                                        <button type="submit" class="save-change-btn"> Modifier</button>
-                                                    </div>
-
-                                                </div>
-                                            </form>
-                                        </div>
+                                        <p class="saved-message">You Can't Saved Your Payment Method yet.</p>
                                     </div>
                                 </div>
+                                <!-- Single Tab Content End -->
+
+                                <!-- Single Tab Content Start -->
+
+                                <!-- Single Tab Content End -->
+
+                                <!-- Single Tab Content Start -->
+
                                 <!-- Single Tab Content End -->
                             </div>
                         </div>

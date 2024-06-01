@@ -41,6 +41,8 @@
 
                                 <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Mon profile</a>
 
+
+
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->
@@ -162,9 +164,9 @@
                                         <h3>Mon profile</h3>
 
                                         <div class="account-details-form">
-                                            <form action="{{ route('profile.update') }}" method="post">
+                                            <form action="{{ route('update.profile') }}" method="post">
                                                 @csrf
-                                                @method('patch')
+                                                @method('put')
                                                 <div class="row">
                                                     <div class="col-lg-6 col-12 mb-30">
                                                         <input id="first-name" name="last_name"
@@ -202,31 +204,29 @@
                                                 </div>
                                             </form>
                                             <hr />
-                                            <form action="{{ route('password.update') }}" method="post">
-                                                @csrf
-                                                @method('put')
+                                            <form action="#">
                                                 <div class="row">
+
                                                     <div class="col-12 mb-30">
                                                         <h4>Modification du password</h4>
                                                     </div>
 
                                                     <div class="col-12 mb-30">
-                                                        <input id="current-pwd" name="current_password"
-                                                            placeholder="Current Password" type="password">
+                                                        <input id="current-pwd" placeholder="Current Password"
+                                                            type="password">
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="new-pwd" name="new_password"
-                                                            placeholder="New Password" type="password">
+                                                        <input id="new-pwd" placeholder="New Password" type="password">
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="confirm-pwd" name="confirm_password"
-                                                            placeholder="Confirm Password" type="password">
+                                                        <input id="confirm-pwd" placeholder="Confirm Password"
+                                                            type="password">
                                                     </div>
 
                                                     <div class="col-12">
-                                                        <button type="submit" class="save-change-btn"> Modifier</button>
+                                                        <button class="save-change-btn"> Modifier</button>
                                                     </div>
 
                                                 </div>

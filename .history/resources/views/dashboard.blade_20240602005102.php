@@ -41,6 +41,8 @@
 
                                 <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Mon profile</a>
 
+
+
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->

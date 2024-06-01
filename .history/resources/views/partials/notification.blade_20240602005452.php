@@ -13,7 +13,7 @@
         {{ session('error') }}
     </div>
 @endif
-@if (Session()->has('message'))
+@if (session('message'))
     <div class="alert alert-success mt-3">
         {{ session('message') }}
     </div>

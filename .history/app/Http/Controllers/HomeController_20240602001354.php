@@ -5,11 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use App\ViewModels\HomepageViewModel;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\ProfileUpdateRequest;
 
 class HomeController extends Controller
 {
@@ -25,5 +21,20 @@ class HomeController extends Controller
 
         $profile = Auth::user();
         return view('dashboard', compact('order', 'profile'));
+    }
+
+    public function update(ProfileUpdateRequest $request): RedirectResponse
+    {
+        $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
+
+        $p = $request->user()->save();
+
+        dd($p);
+
+        return Redirect::back()->with('message', 'Profile mis à jour avec succès');
     }
 }

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
@@ -77,8 +76,6 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        Auth::logout();
-
-        return redirect()->route('login')->with('message', 'Le mot de passe a été mis à jour avec succès. Veuillez vous reconnecter avec votre nouveau mot de passe.');
+        return back()->with('success', 'Le mot de passe a été mis à jour avec succès.');
     }
 }

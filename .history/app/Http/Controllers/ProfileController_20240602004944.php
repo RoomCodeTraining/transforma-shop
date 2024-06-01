@@ -77,8 +77,6 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        Auth::logout();
-
-        return redirect()->route('login')->with('message', 'Le mot de passe a été mis à jour avec succès. Veuillez vous reconnecter avec votre nouveau mot de passe.');
+        return back()->with('success', 'Le mot de passe a été mis à jour avec succès.');
     }
 }
