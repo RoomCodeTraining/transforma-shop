@@ -243,6 +243,7 @@
                                                     </div>
 
                                                     <div>
+
                                                         <button type="submit" class="btn btn-warning"
                                                             title="Add to cart">
                                                             <span class="icon_cart_alt"></span>

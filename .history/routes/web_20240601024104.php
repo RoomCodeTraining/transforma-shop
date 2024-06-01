@@ -50,12 +50,10 @@ Route::controller(AuthentificationController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('cart', 'index')->name('shopping');
     Route::post('cart/store/{id}', 'addToCart')->name('cart.store');
-
+    //Route::post('cart/store/{id}', 'addToCart')->name('cart.store');
     Route::put('cart/update', 'updateCart')->name('cart.update');
     Route::delete('cart/remove', 'removeItem')->name('cart.remove');
     Route::delete('cart/clear', 'clearCart')->name('cart.clear');
-
-    // Route::post('cart/detail', 'StoreDetailToCart')->name('detail.store');
 });
 
 Route::get('/dashboard', function () {

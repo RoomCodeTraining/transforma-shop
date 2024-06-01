@@ -238,15 +238,15 @@
                                                 @csrf
                                                 <div class="row">
                                                     <div>
-                                                        <input type="hidden" name="quantity" value="1"
-                                                            min="1">
+                                                        <input type="number" name="quantity" value="1"
+                                                            min="1" id="">
+
                                                     </div>
 
                                                     <div>
-                                                        <button type="submit" class="btn btn-warning"
-                                                            title="Add to cart">
-                                                            <span class="icon_cart_alt"></span>
-                                                        </button>
+                                                        <input type="submit" value="Add to cart">
+                                                        <a href="#" data-tooltip="Add to cart">
+                                                            <span class="icon_cart_alt"></span></a>
                                                     </div>
                                                 </div>
                                             </form>

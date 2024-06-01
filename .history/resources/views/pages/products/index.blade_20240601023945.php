@@ -234,7 +234,7 @@
                                         <p class="product-description">{{ $product->description }}</p>
                                         <div class="list-product-icons">
 
-                                            <form action="{{ route('cart.store', $product->id) }}" method="post">
+                                            <form action="{{ route('cart.store') }}" method="post">
                                                 @csrf
                                                 <div class="row">
                                                     <div>
@@ -243,6 +243,9 @@
                                                     </div>
 
                                                     <div>
+                                                        {{--  <input type="submit" value="Add to cart">  --}}
+                                                        {{--  <a href="#" type="submit" data-tooltip="Add to cart">
+                                                            <span class="icon_cart_alt"></span></a>  --}}
                                                         <button type="submit" class="btn btn-warning"
                                                             title="Add to cart">
                                                             <span class="icon_cart_alt"></span>

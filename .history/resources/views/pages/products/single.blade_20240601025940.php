@@ -72,30 +72,59 @@
                             </h2>
                             <p class="product-description mb-20">{!! $product->description !!}</p>
                             <div class="cart-buttons mb-20">
-                                <form action="{{ route('cart.store', $product->id) }}" method="post">
-                                    @csrf
-                                    <div class="pro-qty mr-20 mb-xs-20">
-                                        <input type="number" name="quantity" value="1" min="1">
-                                    </div>
-                                    <div class="add-to-cart-btn">
-                                        <button type="submit" class="btn btn-warning" title="Add to cart">
-                                            <span class="icon_cart_alt"></span>
-                                            Ajouter au panier
-                                        </button>
+                                {{--  <div class="pro-qty mr-20 mb-xs-20">
+                                    <input type="text" value="1">
+                                </div>  --}}
+                                <div class="add-to-cart-btn">
+                                    {{--  <a href="#"></a>  --}}
 
-                                    </div>
-                                </form>
+                                    <form action="{{ route('cart.store', $product->id) }}" method="post">
+                                        @csrf
 
+                                        <div class="row"
+                                            style="display: flex; align-items: center;display:flex;justify-content:space-between">
+                                            <div style="margin-right: 10px;">
+                                                <input type="number" name="quantity" value="1" min="1"
+                                                    class="form-control">
+                                            </div>
+
+                                            <div>
+                                                <button type="submit" value="" class="btn btn-warning"
+                                                    style="margin-top: 4px;">
+                                                    <span class="icon_cart_alt"></span>
+                                                    Ajouter au panier
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                    {{--  <a href="javascript:void(0)" data-tooltip="Add to cart"
+                                        onclick="event.preventDefault();document.getElementById('addtocart').submit();"
+                                        id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+
+                                        <i class="fa fa-shopping-cart"></i>Ajouter au panier
+                                        <form id="addtocart" method="post"
+                                            action="{{ route('cart.store', $product->id) }}">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                            <input type="number" name="quantity" id="qty" value="1"
+                                                min="1">
+                                        </form>
+                                    </a>  --}}
+                                </div>
                             </div>
-                            {{--  <div class="single-product-action-btn mb-20">
+                            <div class="single-product-action-btn mb-20">
                                 <a href="#" data-tooltip="Add to wishlist"> <span
-                                        class="icon_heart_alt"></span>Ajouter à la liste de souhaits</a>
+                                        class="icon_heart_alt"></span>Ajouter à la
+                                    liste de souhaits</a>
                                 <a href="#" data-tooltip="Add to compare"> <span class="arrow_left-right_alt"></span>
                                     Ajouter à la comparaison</a>
-                            </div>  --}}
+                            </div>
                             <div class="single-product-category mb-20">
                                 <h3>Categorie: <span><a
-                                            href="shop-left-sidebar.html">{{ $product->category->name }}</a></span></h3>
+                                            href="shop-left-sidebar.html">{{ $product->category->name }}</a></span>
+                                </h3>
                             </div>
                             <div class="social-share-buttons">
                                 <h3>share this product</h3>
