@@ -37,6 +37,6 @@ class RegisterController extends Controller
 
         // return redirect(RouteServiceProvider::HOME);
 
-        return redirect()->route('connexion')->with('message', 'Compte créer avec succès');
+        return back()->with('message', 'Compte créer avec succès ,verifier votre boîte de messagerie');
     }
 }
