@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shoppin_carts', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            // $table->integer('quantity')->default(1);
-            // $table->foreignId('product_id')->constrained()->onDeleteCascade();
-            // $table->foreignId('user_id')->constrained()->onDeleteCascade();
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shoppin_carts');
+        Schema::dropIfExists('transactions');
     }
 };
