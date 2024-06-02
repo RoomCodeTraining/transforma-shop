@@ -90,12 +90,12 @@
                                         alt="">
                                 </div>
                                 <div class="phone-number">
-                                    Contact: <span class="number">1-888-123-456-89</span>
+                                    Contact: <span class="number">225 0505789966</span>
                                 </div>
                             </div>
                             <div class="header-advance-search">
                                 <form action="#">
-                                    <input type="text" placeholder="Search your product">
+                                    <input type="text" placeholder="Rechercher un produit">
                                     <button><span class="icon_search"></span></button>
                                 </form>
                             </div>

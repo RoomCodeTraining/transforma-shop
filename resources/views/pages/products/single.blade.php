@@ -95,7 +95,7 @@
                             </div>  --}}
                             <div class="single-product-category mb-20">
                                 <h3>Categorie: <span><a
-                                            href="shop-left-sidebar.html">{{ $product->category->name }}</a></span></h3>
+                                            href="#">{{ $product->category->name }}</a></span></h3>
                             </div>
                             <div class="social-share-buttons">
                                 <h3>share this product</h3>
