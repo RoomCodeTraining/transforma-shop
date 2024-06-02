@@ -36,8 +36,7 @@
                               --}}
                             <div class="logo">
                                 <a href="/">
-                                    <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
-                                        class="img-fluid mb-4" style="text-items: center" alt="">
+                                    <x-application-logo class="w-80 h-80 rounded-full" />
                                 </a>
                             </div>
                             <div class="row">

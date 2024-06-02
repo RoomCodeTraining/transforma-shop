@@ -28,8 +28,7 @@
                             {{--  <h4 class="login-title" style="text-align:center">Inscription</h4>  --}}
                             <div class="logo">
                                 <a href="/">
-                                    <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
-                                        class="img-fluid mb-4" style="text-items: center" alt="">
+                                    <x-application-logo class="img-fluid rounded border border-primary" />
                                 </a>
                             </div>
                             <div class="row">

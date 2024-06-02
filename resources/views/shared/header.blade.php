@@ -74,8 +74,7 @@
                         <!-- logo -->
                         <div class="logo">
                             <a href="/">
-                                <img width="50" height="50" src="{{ asset('assets/images/logo.webp') }}"
-                                    class="img-fluid " style="text-items: center" alt="">
+                                    <x-application-logo class="w-80 h-80"/>
                             </a>
                         </div>
                         <!-- end of logo -->
