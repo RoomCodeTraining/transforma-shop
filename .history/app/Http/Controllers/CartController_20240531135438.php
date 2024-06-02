@@ -17,6 +17,6 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $product = Product::find($request->id);
-        $price = $        Cart::instance('cart')->add($request->id, $product->name, $request->quantity);
+        $price =   Cart::instance('cart')->add($request->id, $product->name, $request->quantity);
     }
 }
