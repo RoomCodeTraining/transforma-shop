@@ -6,7 +6,7 @@
                 <div class="col">
                     <div class="breadcrumb-container">
                         <ul>
-                            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                            <li><a href="/"><i class="fa fa-home"></i> Accueil</a></li>
                             <li class="active">Tableau de bord</li>
                         </ul>
                     </div>
@@ -99,22 +99,10 @@
                                                                 <td>{{ $key->quantity }}</td>
                                                                 <td>{{ $key->price }}</td>
                                                                 <td>{{ $value->transaction->mode }}</td>
-
-                                                                @if ($value->status == 'ordered')
                                                                     <td>
                                                                         <span
-                                                                            class="badge rounded-pill text-bg-warning">Commande
-                                                                            validée</span>
+                                                                            class="badge rounded-pill text-bg-{{ $value->state->color() }}">{{ $value->state->description() }}</span>
                                                                     </td>
-                                                                @elseif($value->status == 'delivered')
-                                                                    <td><span
-                                                                            class="badge rounded-pill text-bg-success">Livré</span>
-                                                                    </td>
-                                                                @else
-                                                                    <td><span
-                                                                            class="badge rounded-pill text-bg-danger">Commande
-                                                                            annulée</span></td>
-                                                                @endif
 
                                                                 {{--  <td>{{ $value->created_at }}</td>  --}}
                                                                 <td>{{ $value->created_at->format('d/m/Y') }}</td>

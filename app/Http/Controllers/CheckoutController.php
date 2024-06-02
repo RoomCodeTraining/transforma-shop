@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         // Create an order and associate it with the user
         $order = new Order();
         $order->user_id = $user->id;
-        $order->price = $subtotal;
+        // $order->price = $subtotal;
         $order->save();
 
         //dd($order);
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
             $orderItem->order_id = $order->id;
             $orderItem->product_id = $item->id;
             $orderItem->quantity = $item->qty;
-            $orderItem->price = $item->price;
+            // $orderItem->price = $item->price;
             $orderItem->save();
         }
 
