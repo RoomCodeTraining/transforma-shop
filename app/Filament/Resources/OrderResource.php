@@ -65,7 +65,7 @@ class OrderResource extends Resource
             ->actions([
                 ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
+                    // Tables\Actions\EditAction::make(),
                     Action::make('delivery_in_progress')
                         ->icon('heroicon-o-truck')
                         ->label('Valider la livraison')->color('success')
@@ -73,7 +73,7 @@ class OrderResource extends Resource
                         ->hidden(fn ($record) => $record->state->canTransitionTo(DeliveryInProgress::class) === false)
                         ->modalDescription(fn ($record) => 'Êtes-vous sûr de vouloir valider la livraison de la commande ' . $record->reference . ' ?')
                         ->action(function ($record) {
-                            if($record->state->canTransitionTo(DeliveryInProgress::class)) {
+                            if(! $record->state->canTransitionTo(DeliveryInProgress::class)) {
                                 Notification::make()
                                 ->danger()
                                 ->title('Opération échouée')->body('La livraison de la commande ' . $record->reference . ' a échouée.')->send();
@@ -112,6 +112,7 @@ class OrderResource extends Resource
     {
         return [
             'index' => Pages\ListOrders::route('/'),
+            'view' => Pages\ViewOrder::route('/{record}'),
         ];
     }
 }

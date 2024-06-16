@@ -27,6 +27,8 @@ class CategoryResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
     protected static bool $softDelete = true;
     protected static string $title = 'Categories';
+    protected static ?int $navigationSort  = 2;
+
 
     public static function form(Form $form): Form
     {

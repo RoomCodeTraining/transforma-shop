@@ -25,6 +25,8 @@ use App\Filament\Resources\RoleResource\RelationManager\PermissionRelationManage
 class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
+    protected static ?int $navigationSort  = 1;
+
 
     public static function getNavigationIcon(): ?string
     {

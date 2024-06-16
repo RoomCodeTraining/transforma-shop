@@ -12,6 +12,7 @@ use App\StateMachine\Order\OrderState;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,5 +74,14 @@ class Order extends Model
         } while (self::where('reference', $reference)->exists());
 
         return $reference;
+    }
+
+    public function price() : Attribute
+    {
+        return new Attribute(
+            get : function () {
+                return $this->items->sum(fn ($item) => $item->product->price * $item->quantity);
+            }
+        );
     }
 }

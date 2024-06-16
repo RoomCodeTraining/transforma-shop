@@ -35,7 +35,7 @@ class ProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-bolt';
     protected static bool $softDelete = true;
     protected static ?string $label = 'Produits';
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 3;
 
 
     public static function form(Form $form): Form
@@ -104,7 +104,7 @@ class ProductResource extends Resource
                                 Forms\Components\DatePicker::make('available_at')
                                     ->label('Date de disponibilité')
                                     ->reactive()
-                                    ->disabled(fn (Get $get) => ! $get('is_disponible'))
+                                    // ->disabled(fn (Get $get) => ! $get('is_disponible'))
                                     ->live(onBlur: true)
                                     ->default(now())
                                     ->default(now())
@@ -146,6 +146,9 @@ class ProductResource extends Resource
                     ->label('Prix')
                     ->sortable()
                     ->money('XOF'),
+                TextColumn::make('quantity')
+                    ->label('Quantité en stock')
+                    ->sortable(),
                 SpatieMediaLibraryImageColumn::make('image')
                     ->label('Image principale')
                     ->collection('product-images')

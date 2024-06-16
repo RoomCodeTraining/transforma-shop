@@ -31,6 +31,7 @@ use App\Filament\Resources\RoleResource\RelationManager\PermissionRelationManage
 class PermissionResource extends Resource
 {
     protected static bool $isScopedToTenant = false;
+    protected static ?int $navigationSort = 2;
 
     public static function getNavigationIcon(): ?string
     {
